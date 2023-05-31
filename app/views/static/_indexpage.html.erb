@@ -1,1 +1,19 @@
-<h1>You're now logged in.</h1>
+<h1>Welcome!</h1>
+
+<% if @forms.empty? %>
+<p>You have not created any forms yet. </p>
+<% else %>
+<table class="standard-table">
+<tr>
+    <th>Name</th>
+    <th>Link</th> 
+</tr>
+<% @forms.each do |form| %>
+     <tr>
+          <td><%= form.name %></td>
+          <td><%= link_to form_path(form.id), form_path(form.id) %></td> 
+     </tr>
+<% end %>
+</table>
+<% end %>
+<i><%= link_to "Create a new form", new_form_path %></i>

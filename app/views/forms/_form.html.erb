@@ -1,0 +1,19 @@
+<%= form_with model: @form do |form| %>
+     <div class="field">
+          <%= form.label :name %><br />
+          <% @form.errors.full_messages_for(:name).each do |message| %>
+               <div class="destructive"><b><%= message %></b></div>
+          <% end %>
+          <%= form.text_field :name %>
+     </div>
+     <div class="field">
+          <%= form.label :file %><br />
+          <% @form.errors.full_messages_for(:file).each do |message| %>
+               <div class="destructive"><b><%= message %></b></div>
+          <% end %>
+          <%= form.file_field :file %>
+     </div>
+     <div class="actions">
+          <%= form.submit %>
+     </div>
+<% end %>

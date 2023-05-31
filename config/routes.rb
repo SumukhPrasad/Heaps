@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
 	# Defines the root path route ("/")
 	root :controller => 'static', :action => :index
+
+  resources :forms, param: :id do
+	end
 end
