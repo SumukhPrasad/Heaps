@@ -1,5 +1,6 @@
 class FormsController < ApplicationController
-  def show
+	before_action :authenticate_user!
+  	def show
 		@form = Form.find_by!(:id => params[:id])
 	end
 
@@ -11,10 +12,17 @@ class FormsController < ApplicationController
 		@form = current_user.forms.new(form_params)
 
 		if @form.save!
-			redirect_to forms_path(@form.id)
+			redirect_to root_path
 		else
 			render :new, status: :unprocessable_entity
 		end
+	end
+
+	def destroy
+		@form = Form.find_by!(:id => params[:id])
+		@form.destroy
+	
+		redirect_to root_path, status: :see_other
 	end
 
   private

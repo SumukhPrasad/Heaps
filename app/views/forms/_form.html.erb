@@ -11,7 +11,7 @@
           <% @form.errors.full_messages_for(:file).each do |message| %>
                <div class="destructive"><b><%= message %></b></div>
           <% end %>
-          <%= form.file_field :file %>
+          <%= form.file_field :file, accept: 'text/tab-separated-values' %>
      </div>
      <div class="actions">
           <%= form.submit %>

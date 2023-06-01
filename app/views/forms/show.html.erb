@@ -1,3 +1,8 @@
-<h1>Forms#show</h1>
+<h1>Form "<%= @form.name %>"</h1>
 
-<%= @form %>
+<%= @form.name %>
+<%= @form.file %>
+
+<%= button_to "Delete", form_path(@form.id), data: { turbo_confirm: "Are you sure you want to delete this form?\n\n This action is irreversible." }, method: :delete %>
+
+<%= link_to "Heap", heap_path(@form.id) %>
