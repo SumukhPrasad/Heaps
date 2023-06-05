@@ -11,7 +11,6 @@ class HeapsController < ApplicationController
     @prevpage = params[:page].to_i > 0 ? params[:page].to_i-1 : 0
 
     @row=@csv[params[:page].to_i-1]
-    puts @csv.length
 	end
 
   def edit
