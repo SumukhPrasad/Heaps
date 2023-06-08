@@ -7,10 +7,13 @@ class HeapsController < ApplicationController
     
     @csv = CSV.parse(csv_text.gsub(/\"/,''), :headers => true, :col_sep => "\t")
 
-    @nextpage = params[:page].to_i < @csv.length ? params[:page].to_i+1 : 0
-    @prevpage = params[:page].to_i > 0 ? params[:page].to_i-1 : 0
+    @current=params[:page].to_i
+    @nextpage = @current < @csv.length ? params[:page].to_i+1 : 0
+    @prevpage = @current > 0 ? params[:page].to_i-1 : 0
 
-    @row=@csv[params[:page].to_i-1]
+    @row=@csv[@current-1]
+    @total=@csv.length
+
 	end
 
   def edit
