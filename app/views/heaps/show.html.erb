@@ -1,7 +1,7 @@
 <%= render :partial => 'entry', :locals => {:row => @row} %>
 
 <center>
-<p><%= button_to "ACCEPT", root_path, :style => "color: green; font-weight: bold; line-height: 1.5" %> <%= button_to "REJECT", root_path, :style => "color: red; font-weight: bold; line-height: 1.5" %></p>
+<p><%= button_to "ACCEPT", root_path, :style => "color: green; font-weight: bold; line-height: 1.5" %> <%= button_to "WAITLIST", root_path, :style => "color: #007cff; font-weight: bold; line-height: 1.5" %> <%= button_to "REJECT", root_path, :style => "color: red; font-weight: bold; line-height: 1.5" %></p>
 
 <p><%= link_to_if @prevpage>0, "< Back", :page => @prevpage %> | Viewing entry <%= @current %> of <%= @total %> | <%= link_to_if @nextpage>0, "Next >", :page => @nextpage %></p>
 </center>
