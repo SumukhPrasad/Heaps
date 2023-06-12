@@ -1,24 +1,14 @@
-# README
+# Heaps
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Highly barebones rails application to easily sort through TSV files from Google Forms.
 
-Things you may want to cover:
+## What is this?
+Barebones rails application to sort through TSV files from Google Forms into accepted, waitlisted, and rejected entries. More or less intuitive. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Getting Started
+- Downloading
+    - Clone this repository with git clone: `git clone https://github.com/SumukhPrasad/Sherlock.git`
+- Setting Up
+    - Set up and install dependencies: `bundle install`
+    - Migrate the database using `rails db:migrate`
+    - Run `rails server` to start up.
