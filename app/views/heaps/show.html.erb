@@ -8,6 +8,8 @@
      <div style="font-size: 20px; color: red; font-weight: bold; line-height: 1.5">REJECTED ENTRY</div>
 <% end %>
 
+<p><%= link_to_if @prevpage>0, "< Back", :page => @prevpage %> | Viewing entry <%= @current %> of <%= @total %> | <%= link_to_if @nextpage>0, "Next >", :page => @nextpage %></p>
+
 <%= render :partial => 'entry', :locals => {:row => @row} %>
 
 <center>
