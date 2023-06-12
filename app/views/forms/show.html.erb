@@ -9,17 +9,17 @@
      <tr>
           <td>
                <% @form.heap.accepted_indices.split(",") do |i| %>
-                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %>
+                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %><br>
                <% end %>
           </td>
           <td>
                <% @form.heap.waitlisted_indices.split(",") do |i| %>
-                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %>
+                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %><br>
                <% end %>
           </td>
           <td>
                <% @form.heap.rejected_indices.split(",") do |i| %>
-                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %>
+                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %><br>
                <% end %>
           </td>
      </tr>
