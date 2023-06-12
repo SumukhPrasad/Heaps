@@ -1,7 +1,10 @@
 class FormsController < ApplicationController
 	before_action :authenticate_user!
   	def show
-		@form = Form.find_by!(:id => params[:id])
+		@form=Form.find_by!(:id => params[:id])
+		csv_text = @form.file.download
+    
+   		@csv = CSV.parse(csv_text.gsub(/\"/,''), :headers => true, :col_sep => "\t")
 	end
 
 	def new

@@ -3,32 +3,28 @@
 <table>
      <tr>
           <td><span style="color: green; font-weight: bold; font-style: italic;">Accepted</span></td>
-          <td>--</td>
+          <td><span style="color: #007cff; font-weight: bold; font-style: italic;">Waitlisted</span></td>
+          <td><span style="color: red; font-weight: bold; font-style: italic;">Rejected</span></td>
+     </tr>
+     <tr>
           <td>
                <% @form.heap.accepted_indices.split(",") do |i| %>
-                    <%= link_to i.to_i+1, heap_path(@form.id, :page => i.to_i+1) %>
+                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %>
                <% end %>
           </td>
-     </tr>
-     <tr>
-          <td><span style="color: #007cff; font-weight: bold; font-style: italic;">Waitlisted</span></td>
-          <td>--</td>
           <td>
                <% @form.heap.waitlisted_indices.split(",") do |i| %>
-                    <%= link_to i.to_i+1, heap_path(@form.id, :page => i.to_i+1) %>
+                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %>
                <% end %>
           </td>
-     </tr>
-     <tr>
-          <td><span style="color: red; font-weight: bold; font-style: italic;">Rejected</span></td>
-          <td>--</td>
           <td>
                <% @form.heap.rejected_indices.split(",") do |i| %>
-                    <%= link_to i.to_i+1, heap_path(@form.id, :page => i.to_i+1) %>
+                    <%= link_to @csv[i.to_i][1], heap_path(@form.id, :page => i.to_i+1) %>
                <% end %>
           </td>
      </tr>
 </table>
+<div style="background-color: #000; height: 1px; width: 250px; margin: 20px 0;"></div>
 <%= link_to "Start Heaping", heap_path(@form.id, :page => 1) %>
 
 <h2 style="color: red; margin-bottom: 0; margin-top: 25px; font-style: italic;">Delete</h2>
