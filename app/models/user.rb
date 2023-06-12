@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :forms, foreign_key: :user_id, primary_key: :id, dependent: :destroy
+  has_many :heaps, through: :forms, foreign_key: :user_id, primary_key: :id, dependent: :destroy
 end

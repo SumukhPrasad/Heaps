@@ -11,5 +11,10 @@ Rails.application.routes.draw do
 	end
 
   resources :heaps, param: :id do
+    member do
+			post :accept
+      post :waitlist
+      post :reject
+		end
 	end
 end

@@ -12,6 +12,7 @@ class FormsController < ApplicationController
 		@form = current_user.forms.new(form_params)
 
 		if @form.save!
+			@form.create_heap(accepted_indices: "", waitlisted_indices: "", rejected_indices: "")
 			redirect_to root_path
 		else
 			render :new, status: :unprocessable_entity

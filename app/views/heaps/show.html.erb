@@ -1,7 +1,19 @@
+<% if @form.heap.accepted_indices.split(",").map(&:to_i).include? @current-1 %>
+     <div style="font-size: 20px; color: green; font-weight: bold; line-height: 1.5">ACCEPTED ENTRY</div>
+<% end %>
+<% if @form.heap.waitlisted_indices.split(",").map(&:to_i).include? @current-1 %>
+     <div style="font-size: 20px; color: #007cff; font-weight: bold; line-height: 1.5">WAITLISTED ENTRY</div>
+<% end %>
+<% if @form.heap.rejected_indices.split(",").map(&:to_i).include? @current-1 %>
+     <div style="font-size: 20px; color: red; font-weight: bold; line-height: 1.5">REJECTED ENTRY</div>
+<% end %>
+
 <%= render :partial => 'entry', :locals => {:row => @row} %>
 
 <center>
-<p><%= button_to "ACCEPT", root_path, :style => "color: green; font-weight: bold; line-height: 1.5" %> <%= button_to "WAITLIST", root_path, :style => "color: #007cff; font-weight: bold; line-height: 1.5" %> <%= button_to "REJECT", root_path, :style => "color: red; font-weight: bold; line-height: 1.5" %></p>
+<p><%= button_to "ACCEPT", accept_heap_path(:page => @current-1), :style => "width: 100px; color: green; font-weight: bold; line-height: 1.5" %> <%= button_to "WAITLIST", waitlist_heap_path(:page => @current-1), :style => "width: 100px; color: #007cff; font-weight: bold; line-height: 1.5" %> <%= button_to "REJECT", reject_heap_path(:page => @current-1), :style => "width: 100px; color: red; font-weight: bold; line-height: 1.5" %></p>
 
 <p><%= link_to_if @prevpage>0, "< Back", :page => @prevpage %> | Viewing entry <%= @current %> of <%= @total %> | <%= link_to_if @nextpage>0, "Next >", :page => @nextpage %></p>
+
+<p><%= link_to "View form", form_path(@form.id) %></p>
 </center>

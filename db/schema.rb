@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_162203) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_11_153847) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -47,6 +47,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_162203) do
     t.index ["user_id"], name: "index_forms_on_user_id"
   end
 
+  create_table "heaps", force: :cascade do |t|
+    t.string "accepted_indices"
+    t.string "waitlisted_indices"
+    t.string "rejected_indices"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "form_id", null: false
+    t.index ["form_id"], name: "index_heaps_on_form_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -62,4 +72,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_162203) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "forms", "users"
+  add_foreign_key "heaps", "forms"
 end
